@@ -88,10 +88,13 @@ def member_page():
     # selected_file = st.selectbox("Select a PDF [[All Reports](https://drive.google.com/drive/folders/1BocjhYw5_XB6113__FNtL4eTt1mSpE3z)]",
     #                              pdf_files)
     pdfs_folder = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
+    
     ### OpenAI API Key
-    load_dotenv()
-    api = os.getenv("openai_api_key")
-    # api = st.secrets["openai_api_key"]
+    try: 
+        api = st.secrets["openai_api_key"]
+    except: 
+        load_dotenv()
+        api = os.getenv("openai_api_key")
     os.environ["OPENAI_API_KEY"] = api
 
     question=""
@@ -131,18 +134,15 @@ def member_page():
             with harvard as source:
                 audio = r.record(source)
             try:
-                # text_en = r.recognize_google(audio, language="en-US", with_confidence=True)
-                # text_te = r.recognize_google(audio, language="te-IN", with_confidence=True)
+                text_en = r.recognize_google(audio, language="en-US", with_confidence=True)
+                text_te = r.recognize_google(audio, language="te-IN", with_confidence=True)
                 
-                # print(text_en, text_te)
+                print(text_en, text_te)
                 
                 # if text_en[1]>=text_te[1]:
                 #     text = text_en[0]
                 # else:
                 #     text = text_te[0]
-                
-                text2 = r.recognize_assemblyai(audio, api_token= "bf4201ca52f646b99fa6124d372a0eb2")
-                print(text2.text)
                     
             except Exception as e:
                 st.write("Try Again")
