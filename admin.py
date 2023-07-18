@@ -31,6 +31,6 @@ def admin_page():
             # exp1=Image.open("images\exp1.png")
             # st.image(exp1,use_column_width=True)
 
-authenticator = st.session_state['authenticator']
-with st.sidebar:
-    authenticator.logout("Logout", "sidebar")
+# authenticator = st.session_state['authenticator']
+# with st.sidebar:
+#     authenticator.logout("Logout", "sidebar")
