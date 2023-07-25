@@ -110,18 +110,26 @@ def member_page(member_name=None):
     # load_dotenv()
     # api = os.getenv("openai_api_key")
     os.environ["OPENAI_API_KEY"] = api
+        
+    # speech_lang = "en-US"
+    # language = st.radio("Select a Language:", ('English', 'Telugu'))
+    # if language == 'English':
+    #     speech_lang = "en-US"
+    # elif language == 'Telugu':
+    #     speech_lang = "te-IN"
 
     question=""
-    
     # input question
     ask_text = st.text_input("Ask a Question")
-    col1, col3,  col2 = st.columns([2, 3, 2])
+    col1, col2, col3, col4 = st.columns([2, 1, 2, 2])
     with col1:
         ask_button = st.button("Ask", use_container_width=1)
-    with col2:
+    with col3:
         # speak_button = st.button("Speak", use_container_width=1)
         # audio_bytes = audio_recorder(text="", icon_size="2x") -> small button
         audio_bytes = audio_recorder(text = "Click to record", icon_size="2x", key="audio_button")
+    with col4:
+        option = st.selectbox('Select Language', ('English', 'Telugu'))
         
     st.markdown(
         """
@@ -148,14 +156,21 @@ def member_page(member_name=None):
             with harvard as source:
                 audio = r.record(source)
             try:
+                if option=="English":
+                    text = r.recognize_google(audio)
+                elif option== "Telugu":
+                    text = r.recognize_google(audio,language='te-IN')
+                    print('telugu')
+                else:
+                    st.write("Please select a lanuguage")
                 # text_en = r.recognize_google(audio, language="en-US", with_confidence=True)
-                text_te = r.recognize_google(audio, language="te-IN")
+                # text_te = r.recognize_google(audio, language=speech_lang)
                 # print(text_en, text_te)
                 # if text_en[1]>=text_te[1]:
                 #     text = text_en[0]
                 # else:
                 #     text = text_te[0]
-                text = text_te
+                # text = text_te
                     
             except Exception as e:
                 st.write("Try Again")
@@ -190,9 +205,12 @@ def member_page(member_name=None):
                 if (op==" I don't know." or op==" I'm sorry, I don't understand the question." or op=="I don't know." or op==" Sorry,i don't know"):
                     st.write("Apologies! The information you have requested is not available at this point")
                 else:
-                    regional_text = convert_to_regional(input_text=op,language='telugu')
-                    st.write(regional_text)
-                    st.write(op)
+                    if option=="English":
+                        st.write(op)
+                    elif option=="Telugu":
+                        regional_text = convert_to_regional(input_text=op,language='telugu')
+                        st.write(regional_text)
+                        # st.write(op)
                     
             except Exception as e:
                 st.write("Apologies! The information you have requested is not available at this point")
