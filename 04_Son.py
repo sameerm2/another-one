@@ -13,9 +13,7 @@ st.markdown("<h1 style='text-align: center; color: black;'>Generative-AI Assiste
 def son():
     st.markdown("<h3 style='text-align: center; color: black;'>Medical Information</h1>", unsafe_allow_html=True)
     #st.markdown("Enter the medical details of a person")
-
     # Load and display image
-    
 
     # Sidebar for user inputs
     with st.sidebar:
@@ -31,21 +29,15 @@ def son():
         Allergies="None"
         Dieseases="None"
 
-
-
     # Main content to display medical information
     st.write("---")
     if name and age and gender and height and weight:
         #st.markdown("## Medical Information")
-
         # Create columns
         col1, col2,col3 = st.columns([2, 2 , 2])
 
         # Display details in columns and rows
         with col1:
-            
-
-
             image = Image.open("data/boy.jpg")
 
 # Create a circular mask
@@ -62,12 +54,8 @@ def son():
             image_with_border = Image.new("RGBA", (image.size[0] + border_width * 2, image.size[1] + border_width * 2), (255, 0, 0, 255))
             image_with_border.paste(image_with_mask, (border_width, border_width))
             
-
 # Display the modified image
             st.image(image_with_border, caption="Daughter", use_column_width=True)
-
-        
-
         with col2:
             st.write("Name:",name)
             st.write("Age:",age)

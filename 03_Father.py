@@ -68,8 +68,6 @@ def father():
 # Display the modified image
             st.image(image_with_border, caption="Son", use_column_width=True)
 
-        
-
         with col2:
             st.write("Name:",name)
             st.write("Age:",age)
