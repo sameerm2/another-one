@@ -22,7 +22,7 @@ def daughter_in_law():
     with st.sidebar:
         #st.subheader("Personal Details")
         name = "Riya Dey"
-        age = 21
+        age = 31
         gender = "female"
         height = "5"
         weight = "60"
