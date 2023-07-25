@@ -18,8 +18,8 @@ def son():
     # Sidebar for user inputs
     with st.sidebar:
         #st.subheader("Personal Details")
-        name = "Riya Dey"
-        age = 21
+        name = "Riyal Dey"
+        age = 31
         gender = "female"
         height = "5"
         weight = "60"
