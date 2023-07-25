@@ -106,9 +106,9 @@ def member_page(member_name=None):
     pdfs_folder = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
     
     ### OpenAI API Key
-    # api = st.secrets["openai_api_key"]
-    load_dotenv()
-    api = os.getenv("openai_api_key")
+    api = st.secrets["openai_api_key"]
+    # load_dotenv()
+    # api = os.getenv("openai_api_key")
     os.environ["OPENAI_API_KEY"] = api
 
     question=""
