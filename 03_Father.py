@@ -23,7 +23,7 @@ def father():
     with st.sidebar:
         #st.subheader("Personal Details")
         name = "Sudip Mondal"
-        age = 24
+        age = 60
         gender = "Male"
         height = "5"
         weight = "60"
