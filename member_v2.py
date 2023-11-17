@@ -21,6 +21,7 @@ from langchain.vectorstores import Chroma
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
+from langchain.vectorstores import FAISS
 
 r = sr.Recognizer()
 
@@ -188,10 +189,13 @@ def member_page(member_name=None):
         pdf_text = extract_text_multiple(pdfs_folder)
         
         ### GenerativeAI
-        chunk_lst = get_chunk_lst(pdf_text)
+        #chunk_lst = get_chunk_lst(pdf_text)
         embeddings = get_embeddings()
-        doc_search = FAISS.from_documents(chunk_lst, embeddings)
+        Load_FAISS_db=FAISS.load_local(r"./data/",embeddings)
+        doc_search=Load_FAISS_db
+        #doc_search = FAISS.from_documents(chunk_lst, embeddings)
         chain = get_qa_chain()
+        
         
         if question!="":
             st.write("You Asked:", question)
