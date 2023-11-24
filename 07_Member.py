@@ -10,7 +10,8 @@ utils.add_company_logo()
 add_indentation()
 
 #st.markdown("<h1 style='text-align: center; color: black;'>Generative-AI Assisted Medical Records Extraction</h1>", unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center; color: black;'> AI Assisted Document Extraction</h1>", unsafe_allow_html=True)
+#st.markdown("<h1 style='text-align: center; color: black;'> AI Assisted Document Extraction</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'> GenAI Led Document Information Extraction</h1>", unsafe_allow_html=True)
 authenticator = st.session_state['authenticator']
 with st.sidebar:
     authenticator.logout("Logout", "sidebar")
