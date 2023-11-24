@@ -108,13 +108,13 @@ if authentication_status:
     show_pages(
         [
             Page("Home.py", "Admin", "⚙️"),
-            Page("02_Doctor.py", "Doctor", icon="🧑‍⚕️"),
+            #Page("02_Doctor.py", "Doctor", icon="🧑‍⚕️"),
             
-            Section(name="Family", icon="👪"),
-            Page("03_Father.py", "Father", icon="🧓"),
-            Page("04_Son.py", icon="👨"),
-            Page("05_Daughter_in_law.py", icon="👩"),
-            Page("06_Grandson.py", icon="👦"),
+            #Section(name="Family", icon="👪"),
+            #Page("03_Father.py", "Father", icon="🧓"),
+            #Page("04_Son.py", icon="👨"),
+            #Page("05_Daughter_in_law.py", icon="👩"),
+            #Page("06_Grandson.py", icon="👦"),
             
             Page("07_Member.py", in_section=False, icon="📝"),
             # Page("logout.py", in_section=False)
